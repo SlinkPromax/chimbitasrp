@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chimbitas.rp - Vips y Descripción del Servidor</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos adicionales */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #22b393;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .server-info {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .vip-section {
+            margin-top: 40px;
+        }
+
+        .vip-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #555;
+            font-family: 'Arial', sans-serif; /* Cambia el tipo de letra */
+        }
+
+        .vip-img {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+
+        .vip-text {
+            font-size: 14px;
+            color: #8d2727;
+            display: none; /* Ocultar el texto inicialmente */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenido <?php echo $nombre ?></h1>
+        <div class="server-info">
+            <p>Somos un servidor de MTA (Multi Theft Auto) basado en Colombia con un enfoque en el roleplay de pueblo. En nuestro servidor, hemos desarrollado numerosos sistemas únicos y mejorados para ofrecerte la mejor experiencia de juego posible. Sumérgete en nuestro mundo virtual y descubre una comunidad apasionada y emocionante donde cada acción cuenta.</p>
+            <p>Únete a nosotros y experimenta la emoción de la vida en un pueblo colombiano virtual, donde podrás interactuar con otros jugadores, crear historias emocionantes y participar en eventos y actividades divertidas.</p>
+        </div>
+        <div class="vip-section">
+            <div class="vip-title" style="font-family: 'Times New Roman', serif;">Vips Chimbitas Roleplay</div>
+            <p class="vip-text">Bienvenido a Chimbitas Roleplay. Aquí podrás sumergirte en un emocionante mundo de roleplay, interactuar con otros jugadores y explorar una variedad de características únicas.</p>
+            <div class="vip-title">#Vip Chocorramito <img class="vip-img" src="punto_amarillo.png" alt="Punto Amarillo" onclick="toggleVipText()">
+            </div>
+            <p class="vip-text">Vip Chocorramito es un privilegio especial para los jugadores más destacados de nuestro servidor. Obtén acceso a contenido exclusivo, eventos VIP y mucho más.</p>
+        </div>
+    </div>
+
+    <script>
+        // Función para mostrar u ocultar el texto de VIP al hacer clic en el círculo amarillo
+        function toggleVipText() {
+            var vipText = document.querySelector('.vip-text');
+            vipText.style.display = (vipText.style.display === 'none') ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
+
