@@ -3,64 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chimbitas.rp - Descripción del Servidor</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Chimbitas Roleplay - Soporte</title>
     <style>
-        /* Estilos adicionales */
+        /* Estilos */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #007bff; /* Fondo azul */
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
         .container {
             max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #22b393;
+            margin: 20px auto;
+            padding: 40px; /* Aumento del espacio interior */
+            background-color: #1f232a;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 28px; /* Aumento del tamaño del título */
+            text-align: center;
+            margin-bottom: 20px; /* Espacio inferior */
+        }
+        p {
+            text-align: justify;
+            margin-bottom: 30px; /* Aumento del espacio inferior */
+        }
+        form {
             text-align: center;
         }
-
-        h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #333;
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0; /* Aumento del espacio entre el área de texto y el botón */
+            border-radius: 5px;
+            border: none;
+            background-color: #3a3f4b;
+            color: #fff;
+            resize: vertical;
         }
-
-        .server-info {
-            font-size: 16px;
-            margin-bottom: 20px;
-            color: #555;
+        button {
+            padding: 10px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #008cba;
+            color: #fff;
+            cursor: pointer;
         }
-
-        .vip-section {
-            margin-top: 40px;
+        button:hover {
+            background-color: #005f75;
         }
-
-        .vip-title {
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: #555;
-            font-family: 'Arial', sans-serif; /* Cambia el tipo de letra */
-        }
-
-        .vip-img {
-            width: 20px;
-            height: 20px;
-            vertical-align: middle;
-            margin-left: 5px;
-        }
-
-        .vip-text {
+        .footer {
+            text-align: center;
+            margin-top: 50px;
             font-size: 14px;
-            color: #8d2727;
-            display: none; /* Ocultar el texto inicialmente */
+            color: #007bff; /* Texto en azul */
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Bienvenido <?php echo $nombre ?></h1>
-        <div class="server-info">
-            <p>Somos un servidor de MTA (Multi Theft Auto) basado en Colombia con un enfoque en el roleplay de pueblo. En nuestro servidor, hemos desarrollado numerosos sistemas únicos y mejorados para ofrecerte la mejor experiencia de juego posible. Sumérgete en nuestro mundo virtual y descubre una comunidad apasionada y emocionante donde cada acción cuenta.</p>
-            <p>Únete a nosotros y experimenta la emoción de la vida en un pueblo colombiano virtual, donde podrás interactuar con otros jugadores, crear historias emocionantes y participar en eventos y actividades divertidas.</p>
-        </div>
-    
-</html>
+        <h1>Chimbitas Roleplay</h1>
+        <p>Bienvenido a Chimbitas Roleplay, un servidor de roleplay basado en Colombia con sistemas únicos y emocionantes. Sumérgete en un mundo lleno de aventuras y desafíos, donde tu imaginación es el límite.</p>
+        <h2>Soporte ChimbitasRp</h2> <!-- Cambiado a H2 -->
+        <p>¿Tienes una duda sobre cómo empezar tu épica aventura? ¡No te preocupes! Estamos aquí para ayudarte en cada paso del camino. Envíanos tu pregunta y nuestro equipo de expertos en roleplay estará encantado de brindarte toda la orientación que necesites.</p>
+        <form id="supportForm">
+            <textarea id="message" placeholder="Escribe tu duda aquí"></textarea>
+            <br>
+            <button type="submit">Enviar Duda</button>
+        </form>
+    </div>
+    <div class="footer">
+        <a href="index3.html" style="text-decoration: none;">Próxima Página</a> <!-- Vínculo a index3.html -->
+    </div>
 
+    <!-- Script para enviar la duda -->
+    <script>
+        document.getElementById('supportForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var message = document.getElementById('message').value.trim();
+            if (message !== '') {
+                fetch('URL_DEL_WEBHOOK_DE_DISCORD', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        content: 'Nueva duda: ' + message
+                    })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Hubo un error al enviar la duda.');
+                    }
+                    alert('Duda enviada correctamente.');
+                    document.getElementById('message').value = '';
+                })
+                .catch(error => {
+                    console.error(error);
+                    alert('Hubo un error al enviar la duda.');
+                });
+            } else {
+                alert('Por favor, ingresa tu duda antes de enviar.');
+            }
+        });
+    </script>
+</body>
+</html>
